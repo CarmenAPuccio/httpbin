@@ -45,3 +45,16 @@ spec:
         name: httpbin
         ports:
         - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /json
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 3
+            
